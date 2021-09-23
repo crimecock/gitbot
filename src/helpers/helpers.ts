@@ -16,7 +16,7 @@ export function joinUserChannel(msg: Message): Promise<VoiceConnection> {
 }
 
 export function secondsToTimestamp(seconds: number): string {
-    return moment()
+    return moment.default()
         .startOf('day')
         .seconds(seconds)
         .format('HH:mm:ss');

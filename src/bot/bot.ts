@@ -116,7 +116,7 @@ export class RhythmBot extends IBot<IRhythmBotConfig> {
                 }
             })
             .on('search', (cmd: SuccessfulParsedMessage<Message>, msg: Message) => {
-                yts({
+                yts.default({
                     query: cmd.body,
                     pages: 1
                 }, (err, result) => {

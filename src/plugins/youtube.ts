@@ -29,7 +29,7 @@ export default class YoutubePlugin extends IBotPlugin {
             youtubeType,
             {
                 getPlaylist: (item: MediaItem) => new Promise<MediaItem[]>((done, error) => {
-                    ytpl(item.url)
+                    ytpl.default(item.url)
                         .then(playlist => {
                             const items = playlist.items.map(item => (<MediaItem>{ type: youtubeType, url: item.url, name: item.title }))
                             done(items);
@@ -47,7 +47,7 @@ export default class YoutubePlugin extends IBotPlugin {
                         .catch(err => error(err));
                 }),
                 getStream: (item: MediaItem) => new Promise<Readable>((done, error) => {
-                    let stream = ytdl(item.url, { filter: 'audioonly', quality: 'highestaudio' });
+                    let stream = ytdl.default(item.url, { filter: 'audioonly', quality: 'highestaudio' });
                     if(stream)
                         done(stream);
                     else
