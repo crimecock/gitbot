@@ -43,3 +43,4 @@ app.js
 test.js
 bot-config.json
 /build
+.env
